@@ -115,10 +115,7 @@ def main():
         snippet = get(**arguments)        
         print("Retrieved snippet: {!r}".format(snippet))
     elif command == "catalog":        
-        keys = []
-        keywordlist = catalog(**arguments)  
-        for values in keywordlist:
-            keys.append(",".join(values))
+        keys = [",".join(val) for val in catalog(**arguments)]
         print("Available keywords: {!r}".format(keys)) 
     elif command == "search":
         for name, snippet in search(**arguments):
